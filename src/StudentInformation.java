@@ -8,6 +8,7 @@ public class StudentInformation
 	private ArrayList<Student> students = new ArrayList<Student>();
 
 	public StudentInformation()
+	// DELETE THIS COMMENT
 	{
 		readFile();
 	}
