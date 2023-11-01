@@ -94,6 +94,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 			try
 			{
 				studentInfo.addStudent(student);
+				
+				new GUIView();
+				dispose();
 			}
 			catch (IOException e1)
 			{

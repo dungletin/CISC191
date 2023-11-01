@@ -1,7 +1,7 @@
 
 public class HonoredStudent extends Student
 {
-
+	
 	private final String type = "Honored";
 
 	public HonoredStudent(String name, int ID)

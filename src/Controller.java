@@ -43,7 +43,7 @@ public class Controller
 		{
 			
 			new AddStudentWindow(view.getStudentInfo());
-			
+			view.dispose();
 		}
 	}
 	
