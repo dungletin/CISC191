@@ -3,6 +3,9 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		new GUIView(new StudentInformation());
+		 new Controller(new GUIView());
+
+//		new GUIView(new StudentInformation());
+
 	}
 }

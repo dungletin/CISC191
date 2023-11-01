@@ -3,14 +3,12 @@ public class HonoredStudent extends Student
 {
 
 	private final String type = "Honored";
-	public HonoredStudent(String name)
+
+	public HonoredStudent(String name, int ID)
 	{
-		super(name);
+		super(name, ID);
 	}
-	
-	
-	
-	
+
 	@Override
 	public String toString()
 	{

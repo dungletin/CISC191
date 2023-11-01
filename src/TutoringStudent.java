@@ -4,9 +4,9 @@ public class TutoringStudent extends Student
 
 	private final String type = "Tutoring";
 
-	public TutoringStudent(String name)
+	public TutoringStudent(String name, int ID)
 	{
-		super(name);
+		super(name, ID);
 	}
 
 	@Override

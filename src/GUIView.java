@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -11,30 +13,38 @@ public class GUIView extends JFrame
 {
 
 	private JPanel mainPanel;
-	private JTextArea infoTextArea;
+
 	private JButton addButton;
-	private StudentInformation studentInfo;
 	private ArrayList<Student> students;
 	private final int WINDOW_WIDTH = 400;
 	private final int WINDOW_HEIGHT = 400;
-	private JTextArea ta;
-	private JScrollPane sp;
 	private String text;
-	private JLabel welcomeLabel;
+	private final JLabel titleLabel = new JLabel("Class Information");
 	private JButton exitButton;
+	private JPanel northPanel;
+	private JPanel southPanel;
 
+	private int numberOfStudents;
+	private JLabel[] infoLabels;
+	private JButton[] removeButtons;
+	private JPanel[] panelsOfStudent;
+	private JButton[] editButtons;
+	private StudentInformation studentInfo;
 
-	public GUIView(StudentInformation studentInfo)
+	public GUIView()
 	{
-		
-		this.studentInfo = studentInfo;
+		studentInfo = new StudentInformation();
 		students = studentInfo.getStudentList();
-		
-		//create panel
+
+		// set layout
+		setLayout(new BorderLayout());
+		// create panel
 		createPanel();
-		add(mainPanel);
-		
-		
+		createNorthAndSouthPanel();
+
+		add(mainPanel, BorderLayout.CENTER);
+		add(northPanel, BorderLayout.NORTH);
+		add(southPanel, BorderLayout.SOUTH);
 		// set the size
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
@@ -43,50 +53,99 @@ public class GUIView extends JFrame
 
 		// display the window
 		setVisible(true);
+
 	}
-	
-	
+
 	/**
 	 * method creates panel
 	 */
-	
 	public void createPanel()
 	{
+
 		mainPanel = new JPanel();
-		welcomeLabel = new JLabel("Student Information:");
-		mainPanel.add(welcomeLabel);
-		ta = new JTextArea(5, 30);
-		ta.setEditable(false);
-		ta.setText(createText());
-		sp = new JScrollPane(ta);
-		mainPanel.add(sp);
-		
-		addButton = new JButton("Add Student");
-		mainPanel.add(addButton);
-		exitButton = new JButton("Exit");
-		mainPanel.add(exitButton);
-		
-	
-		
+		mainPanel.setLayout(new GridLayout(students.size(), 1));
+		createLabel();
+		addPanel();
+
 	}
-	
-	
-	public String createText()
+
+	/**
+	 * method creates the label of student information
+	 */
+	public void createLabel()
 	{
-		for(Student student: students)
+		infoLabels = new JLabel[students.size()];
+		removeButtons = new JButton[students.size()];
+		panelsOfStudent = new JPanel[students.size()];
+		editButtons = new JButton[students.size()];
+		
+		// for loop to create label base on the students array
+		for (int i = 0; i < students.size(); i++)
 		{
-			if(students.indexOf(student)==0)
-			{
-				text = student.toString();
-			} else
-			{
-				text = text +"\n" + student;
-			}
-			
+			// create labels remove buttons and panels of students
+			infoLabels[i] = new JLabel();
+			removeButtons[i] = new JButton("Remove");
+			panelsOfStudent[i] = new JPanel();
+			editButtons[i] = new JButton("Edit");
+
+			// set the text for label
+			infoLabels[i].setText(students.get(i).getNameAndID());
+			// add label and remove button into the panel
+			panelsOfStudent[i].add(infoLabels[i]);
+			panelsOfStudent[i].add(editButtons[i]);
+			panelsOfStudent[i].add(removeButtons[i]);
+		
 		}
-		return text;
+
+	}
+
+	/**
+	 * method adds labels in to the main panel
+	 */
+	public void addPanel()
+	{
+		for (int i = 0; i < students.size(); i++)
+		{
+			// mainPanel.add(infoLabels[i]);
+			// mainPanel.add(removeButtons[i]);
+			mainPanel.add(panelsOfStudent[i]);
+		}
+	}
+
+	/**
+	 * method create north and south panel
+	 */
+	public void createNorthAndSouthPanel()
+	{
+
+		// North Panel contains a Student Information label
+		northPanel = new JPanel();
+		northPanel.add(titleLabel);
+
+		// South Panel contain
+		southPanel = new JPanel();
+		exitButton = new JButton("Exit");
+		addButton = new JButton("Add Student");
+		southPanel.add(exitButton);
+		southPanel.add(addButton);
 	}
 	
-	
+	/**
+	 * get student info
+	 */
+	public StudentInformation getStudentInfo()
+	{
+		return studentInfo;
+	}
+
+	/**
+	 * Method exit ActionListener
+	 */
+
+	public void registerActionListener(Controller.ExitListener exitListener, Controller.AddStudentButtonListener addListener)
+	{
+		exitButton.addActionListener(exitListener);
+		addButton.addActionListener(addListener);
+	}
 
 }

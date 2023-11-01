@@ -2,33 +2,35 @@
 public class Student
 {
 	private String name;
-	private final int ID;
-	private static int counter;
+	private int ID;
+	private int grade;
 
-
-	public Student(String name)
+	public Student(String name, int ID)
 	{
-		//generate a new ID for student
-		generateID();
 		this.name = name;
-		this.ID = counter;
+		this.ID = ID;
 	}
 
-	private void generateID()
+	public String getNameAndID()
 	{
-		counter++;
+		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "%";
 	}
-	
+
 	public String toString()
 	{
 		return ID + "-" + name + "-Regular";
 	}
-	
+
 	public int getID()
 	{
 		return ID;
 	}
 	
+	public void setGrade(int grade)
+	{
+		this.grade = grade;
+	}
+
 	public String getName()
 	{
 		return name;

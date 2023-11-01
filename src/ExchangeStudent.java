@@ -3,12 +3,11 @@ public class ExchangeStudent extends Student
 {
 	private final String type = "Exchange";
 
-	public ExchangeStudent(String name)
+	public ExchangeStudent(String name, int ID)
 	{
-		super(name);
+		super(name, ID);
 	}
 
-	
 	@Override
 	public String toString()
 	{
