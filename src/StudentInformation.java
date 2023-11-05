@@ -41,29 +41,30 @@ public class StudentInformation
 				// use the name to create a new student object
 				// then add student into the array
 				Student student;
+				
+				String name = info[1];
+				int ID = Integer.valueOf(info[0]);
+				String type = info[2];
 
 				// check the third word in the line to see the type and create
 				// it by that type
-				if (info[2].equals("Exchange"))
+				if (type.equals("Exchange"))
 				{
-					student = new ExchangeStudent(info[1],
-							Integer.valueOf(info[0]));
+					student = new ExchangeStudent(name, ID);
 				}
-				else if (info[2].equals("Honored"))
+				else if (type.equals("Honored"))
 				{
-					student = new HonoredStudent(info[1],
-							Integer.valueOf(info[0]));
+					student = new HonoredStudent(name, ID);
 
 				}
-				else if (info[2].equals("Tutoring"))
+				else if (type.equals("Tutoring"))
 				{
-					student = new TutoringStudent(info[1],
-							Integer.valueOf(info[0]));
+					student = new TutoringStudent(name,ID);
 
 				}
 				else
 				{
-					student = new Student(info[1], Integer.valueOf(info[0]));
+					student = new Student(name, ID);
 				}
 
 				students.add(student);
@@ -107,5 +108,6 @@ public class StudentInformation
 		pWriter.close();
 		
 	}
+	//test
 
 }
