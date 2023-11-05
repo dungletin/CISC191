@@ -1,8 +1,3 @@
-342-name-Honored
-2112-name2-Regular
-43243-name3-Exchange
-4234-name4-Tutoring
-124-student-Exchange
-31-Meidyn-Regular
-30-meidyn-Regular
-21123-duyen-Tutoring
+3-Dung-Tutoring
+125421-Meidyn Nguyen-Regular
+42135-John B-Exchange

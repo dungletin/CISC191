@@ -36,14 +36,14 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		add(centerPanel, BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
 		add(northPanel, BorderLayout.NORTH);
-		// set the size
-		setSize(300, 300);
+		
 
 		// set the program to end when the window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// display the window
 		setVisible(true);
+		pack();
 	}
 
 	/**
@@ -88,6 +88,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		// create south panel
 		southPanel = new JPanel();
 		exitButton = new JButton("Exit");
+		exitButton.addActionListener(this);
 		addButton = new JButton("Add");
 		addButton.addActionListener(this);
 		southPanel.add(exitButton);
@@ -111,7 +112,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		char[] chars = name.toCharArray();
 		for (char character : chars)
 		{
-			if (!Character.isLetter(character))
+			if (!Character.isLetter(character) && character != ' ')
 			{
 				return false;
 			}
@@ -206,7 +207,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		//close the window
 		if(e.getSource() == exitButton)
 		{
-			dispose();
+			System.exit(0);
 		}
 
 	}

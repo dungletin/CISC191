@@ -16,9 +16,6 @@ public class GUIView extends JFrame
 
 	private JButton addButton;
 	private ArrayList<Student> students;
-	private final int WINDOW_WIDTH = 400;
-	private final int WINDOW_HEIGHT = 400;
-	private String text;
 	private final JLabel titleLabel = new JLabel("Class Information");
 	private JButton exitButton;
 	private JPanel northPanel;
@@ -45,15 +42,14 @@ public class GUIView extends JFrame
 		add(mainPanel, BorderLayout.CENTER);
 		add(northPanel, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
-		// set the size
-		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+		
 
 		// set the program to end when the window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// display the window
 		setVisible(true);
-
+		pack();
 	}
 
 	/**
@@ -74,6 +70,7 @@ public class GUIView extends JFrame
 	 */
 	public void createLabel()
 	{
+		
 		infoLabels = new JLabel[students.size()];
 		removeButtons = new JButton[students.size()];
 		panelsOfStudent = new JPanel[students.size()];
@@ -142,10 +139,30 @@ public class GUIView extends JFrame
 	 * Method exit ActionListener
 	 */
 
-	public void registerActionListener(Controller.ExitListener exitListener, Controller.AddStudentButtonListener addListener)
+	public void registerActionListener(Controller.ExitListener exitListener, Controller.AddStudentButtonListener addListener, Controller.RemoveButtonListener removeListener)
 	{
 		exitButton.addActionListener(exitListener);
 		addButton.addActionListener(addListener);
+		for(JButton removeButton: removeButtons)
+		{
+			removeButton.addActionListener(removeListener);
+		}
 	}
-
+	
+	/**
+	 * Method get index of the line of remove button and student
+	 */
+	public int getIndex(JButton button)
+	{
+		
+	
+	for(int i = 0; i < removeButtons.length ; i++)
+	{
+		if(button == removeButtons[i])
+		{
+			return i;
+		}
+	}
+		return -1;
+	}
 }

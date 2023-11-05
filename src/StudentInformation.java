@@ -41,7 +41,7 @@ public class StudentInformation
 				// use the name to create a new student object
 				// then add student into the array
 				Student student;
-				
+
 				String name = info[1];
 				int ID = Integer.valueOf(info[0]);
 				String type = info[2];
@@ -59,7 +59,7 @@ public class StudentInformation
 				}
 				else if (type.equals("Tutoring"))
 				{
-					student = new TutoringStudent(name,ID);
+					student = new TutoringStudent(name, ID);
 
 				}
 				else
@@ -89,40 +89,62 @@ public class StudentInformation
 	{
 		return students;
 	}
-	
+
 	/**
 	 * Add student
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
-	public void addStudent(Student student) throws IOException 
+	public void addStudent(Student student) throws IOException
 	{
+
 		students.add(student);
+
 		File outFile = new File("text.txt");
 		FileWriter fWriter = new FileWriter(outFile);
 		PrintWriter pWriter = new PrintWriter(fWriter);
-		for(int i = 0; i < students.size(); i++)
+		for (int i = 0; i < students.size(); i++)
 		{
 			pWriter.println(students.get(i).toString());
 		}
-		
+
 		pWriter.close();
-		
+
 	}
-	
-	
-	/*
-	 * Method checks if the ID already exists
-	 */
-	public boolean containID(int ID) {
-		for(Student student: students)
+
+	public void removeStudent(int index) throws IOException
+	{
+
+		students.remove(index);
+
+		File outFile = new File("text.txt");
+		FileWriter fWriter = new FileWriter(outFile);
+		PrintWriter pWriter = new PrintWriter(fWriter);
+		for (int i = 0; i < students.size(); i++)
 		{
-			if(ID == student.getID())
+			pWriter.println(students.get(i).toString());
+		}
+
+		pWriter.close();
+
+	}
+
+	/**
+	 * method checks if the id exists in the class
+	 * 
+	 * @param ID
+	 * @return true if it exists otherwise return false
+	 */
+	public boolean containID(int ID)
+	{
+		for (Student student : students)
+		{
+			if (ID == student.getID())
 			{
 				return true;
 			}
 		}
 		return false;
 	}
-	
 
 }

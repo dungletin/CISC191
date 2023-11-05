@@ -2,11 +2,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.JButton;
+
 public class Controller
 {
 
 	private GUIView view;
-
+	private Student student;
 
 	/**
 	 * Constructor
@@ -16,7 +18,7 @@ public class Controller
 	public Controller(GUIView view)
 	{
 		this.view = view;
-		view.registerActionListener(new ExitListener(), new AddStudentButtonListener());
+		view.registerActionListener(new ExitListener(), new AddStudentButtonListener(), new RemoveButtonListener());
 		
 	}
 
@@ -33,9 +35,8 @@ public class Controller
 	}
 
 	/**
-	 * Add Student Button Listener
+	 * AddStudent Button Listener
 	 */
-
 	public class AddStudentButtonListener implements ActionListener
 	{
 		@Override
@@ -46,5 +47,29 @@ public class Controller
 			view.dispose();
 		}
 	}
+	
+	
+	public class RemoveButtonListener implements ActionListener
+	{
+		
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			try
+			{
+				view.getStudentInfo().removeStudent(view.getIndex((JButton) e.getSource()));
+				new Controller(new GUIView());
+				view.dispose();
+			}
+			catch (IOException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
 	
 }
