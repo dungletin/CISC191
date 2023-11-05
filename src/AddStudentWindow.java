@@ -141,18 +141,21 @@ public class AddStudentWindow extends JFrame implements ActionListener
 			String ID = IDTextField.getText();
 			String type = (String) comboBox.getSelectedItem();
 
+			//check if the name and ID are valid
 			if (!isValidName(name) || !isValidID(ID))
 			{
 				statusLabel.setText("Fail");
 			}
 			else
 			{
-
+				
 				int newID = Integer.valueOf(ID);
+				//check if the ID already exist in the class
 				if (studentInfo.containID(newID))
 				{
 					statusLabel.setText("ID already exists");
 				}
+				//if id does not exist create new student object based on the info
 				else
 				{
 					Student student;
