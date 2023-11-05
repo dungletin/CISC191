@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,7 +23,10 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	private JPanel southPanel;
 //	private GUIView view;
 	private StudentInformation studentInfo;
-
+	private JComboBox<String> comboBox;
+	private JPanel northPanel;
+	private JLabel titleLabel;
+	
 	public AddStudentWindow(StudentInformation studentInfo)
 	{
 		this.studentInfo = studentInfo;
@@ -30,9 +34,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		setLayout(new BorderLayout());
 		add(centerPanel,BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
-		
+		add(northPanel, BorderLayout.NORTH);
 		// set the size
-		setSize(200, 200);
+		setSize(300,300);
 
 		// set the program to end when the window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +55,8 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		nameTextField = new JTextField(10);
 		IDLabel = new JLabel("ID:");
 		IDTextField = new JTextField(10);
+		String[] comboOptions = {"Regular", "Exchange", "Honored", "Tutoring"};
+		comboBox = new JComboBox<String>(comboOptions);
 		
 		//name panel
 		JPanel namePanel = new JPanel();
@@ -62,19 +68,30 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		IDPanel.add(IDLabel);
 		IDPanel.add(IDTextField);
 		
-		centerPanel.setLayout(new GridLayout(2,1));
+		//combo box Panel
+		JPanel comboBoxPanel = new JPanel();
+		comboBoxPanel.add(comboBox);
+		
+		//Add components into center panel
+		centerPanel.setLayout(new GridLayout(3,1));
 		centerPanel.add(namePanel);
 		centerPanel.add(IDPanel);
-	
+		centerPanel.add(comboBoxPanel);
 
 		
-		
+		//create south panel
 		southPanel = new JPanel();
 		exitButton = new JButton("Exit");
 		addButton = new JButton("Add");
 		addButton.addActionListener(this);
 		southPanel.add(exitButton);
 		southPanel.add(addButton);
+		
+		//create north panel
+		northPanel = new JPanel();
+		titleLabel = new JLabel("Please enter student infomation:");
+		northPanel.add(titleLabel);
+		
 		
 
 	}

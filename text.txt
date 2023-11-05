@@ -8,8 +8,4 @@
 2-Tien-Regular
 1-tien-Regular
 7-tien-Regular
-<<<<<<< HEAD
-144-meidyn-Regular
-=======
-123-tien-Regular
->>>>>>> 272201425797f4a1583cc0fde56011517a7ee22c
+1234-tien-Regular
