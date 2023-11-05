@@ -2,12 +2,6 @@
 2112-name2-Regular
 43243-name3-Exchange
 4234-name4-Tutoring
-2-Tien-Regular
-2-Tien-Regular
-2-Tien-Regular
-2-Tien-Regular
-1-tien-Regular
-7-tien-Regular
-1234-tien-Regular
-5431-Meidyn-Regular
-3542-Meidyn-Honored
+124-student-Exchange
+31-Meidyn-Regular
+30-meidyn-Regular

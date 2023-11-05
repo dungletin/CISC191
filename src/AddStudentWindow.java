@@ -26,6 +26,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	private JComboBox<String> comboBox;
 	private JPanel northPanel;
 	private JLabel titleLabel;
+	private JLabel statusLabel;
 
 	public AddStudentWindow(StudentInformation studentInfo)
 	{
@@ -58,6 +59,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		String[] comboOptions = { "Regular", "Exchange", "Honored",
 				"Tutoring" };
 		comboBox = new JComboBox<String>(comboOptions);
+		statusLabel = new JLabel();
 
 		// name panel
 		JPanel namePanel = new JPanel();
@@ -73,12 +75,16 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		JPanel comboBoxPanel = new JPanel();
 		comboBoxPanel.add(comboBox);
 
+		// status panel
+		JPanel statusPanel = new JPanel();
+		statusPanel.add(statusLabel);
+
 		// Add components into center panel
-		centerPanel.setLayout(new GridLayout(3, 1));
+		centerPanel.setLayout(new GridLayout(4, 1));
 		centerPanel.add(namePanel);
 		centerPanel.add(IDPanel);
 		centerPanel.add(comboBoxPanel);
-
+		centerPanel.add(statusPanel);
 		// create south panel
 		southPanel = new JPanel();
 		exitButton = new JButton("Exit");
@@ -94,6 +100,37 @@ public class AddStudentWindow extends JFrame implements ActionListener
 
 	}
 
+	/*
+	 * 
+	 */
+	public boolean isValidName(String name)
+	{
+
+		char[] chars = name.toCharArray();
+		for (char character : chars)
+		{
+			if (!Character.isLetter(character))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean isValidID(String ID)
+	{
+		char[] chars = ID.toCharArray();
+		for (char character : chars)
+		{
+			if (!Character.isDigit(character))
+			{
+				return false;
+
+			}
+		}
+		return true;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -101,39 +138,55 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		{
 
 			String name = nameTextField.getText();
-			int ID = Integer.parseInt(IDTextField.getText());
+			String ID = IDTextField.getText();
 			String type = (String) comboBox.getSelectedItem();
-			Student student;
-			if (type.equals("Exchange"))
+
+			if (!isValidName(name) || !isValidID(ID))
 			{
-				student = new ExchangeStudent(name, ID);
-			}
-			else if (type.equals("Honored"))
-			{
-				student = new HonoredStudent(name,ID);
-			}
-			else if (type.equals("Tutoring"))
-			{
-				student = new TutoringStudent(name,ID);
+				statusLabel.setText("Fail");
 			}
 			else
 			{
-				student = new Student(name, ID);
-			}
 
-			try
-			{
-				studentInfo.addStudent(student);
+				int newID = Integer.valueOf(ID);
+				if (studentInfo.containID(newID))
+				{
+					statusLabel.setText("ID already exists");
+				}
+				else
+				{
+					Student student;
+					if (type.equals("Exchange"))
+					{
+						student = new ExchangeStudent(name, newID);
+					}
+					else if (type.equals("Honored"))
+					{
+						student = new HonoredStudent(name, newID);
+					}
+					else if (type.equals("Tutoring"))
+					{
+						student = new TutoringStudent(name, newID);
+					}
+					else
+					{
+						student = new Student(name, newID);
+					}
 
-				new GUIView();
-				dispose();
-			}
-			catch (IOException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+					try
+					{
+						studentInfo.addStudent(student);
 
+						new Controller(new GUIView());
+						dispose();
+					}
+					catch (IOException e1)
+					{
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
 		}
 
 	}

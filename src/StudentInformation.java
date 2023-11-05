@@ -109,5 +109,20 @@ public class StudentInformation
 		
 	}
 	
+	
+	/*
+	 * Method checks if the ID already exists
+	 */
+	public boolean containID(int ID) {
+		for(Student student: students)
+		{
+			if(ID == student.getID())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 
 }
