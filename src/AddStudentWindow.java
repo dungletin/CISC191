@@ -101,7 +101,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	}
 
 	/*
-	 * 
+	 * Method check if the name is valid
+	 * @param name
+	 * @return if name contains character that is not letter return false, otherwise return true
 	 */
 	public boolean isValidName(String name)
 	{
@@ -117,6 +119,11 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		return true;
 	}
 
+	/**
+	 * Method check if Id is valid or not
+	 * @param ID
+	 * @return if ID only contain number return true otherwise returns false
+	 */
 	public boolean isValidID(String ID)
 	{
 		char[] chars = ID.toCharArray();
@@ -134,6 +141,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		
+		//add button action
+		//check the name and id if they are valid and check the id if it was already added in the class
 		if (e.getSource() == addButton)
 		{
 
@@ -158,6 +168,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 				//if id does not exist create new student object based on the info
 				else
 				{
+					
 					Student student;
 					if (type.equals("Exchange"))
 					{
@@ -190,6 +201,12 @@ public class AddStudentWindow extends JFrame implements ActionListener
 					}
 				}
 			}
+		}
+		
+		//close the window
+		if(e.getSource() == exitButton)
+		{
+			dispose();
 		}
 
 	}
