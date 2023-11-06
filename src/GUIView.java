@@ -28,6 +28,9 @@ public class GUIView extends JFrame
 	private JButton[] editButtons;
 	private StudentInformation studentInfo;
 
+	/**
+	 * Constructor
+	 */
 	public GUIView()
 	{
 		studentInfo = new StudentInformation();
@@ -42,7 +45,6 @@ public class GUIView extends JFrame
 		add(mainPanel, BorderLayout.CENTER);
 		add(northPanel, BorderLayout.NORTH);
 		add(southPanel, BorderLayout.SOUTH);
-		
 
 		// set the program to end when the window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,12 +72,12 @@ public class GUIView extends JFrame
 	 */
 	public void createLabel()
 	{
-		
+
 		infoLabels = new JLabel[students.size()];
 		removeButtons = new JButton[students.size()];
 		panelsOfStudent = new JPanel[students.size()];
 		editButtons = new JButton[students.size()];
-		
+
 		// for loop to create label base on the students array
 		for (int i = 0; i < students.size(); i++)
 		{
@@ -91,7 +93,7 @@ public class GUIView extends JFrame
 			panelsOfStudent[i].add(infoLabels[i]);
 			panelsOfStudent[i].add(editButtons[i]);
 			panelsOfStudent[i].add(removeButtons[i]);
-		
+
 		}
 
 	}
@@ -126,7 +128,7 @@ public class GUIView extends JFrame
 		southPanel.add(exitButton);
 		southPanel.add(addButton);
 	}
-	
+
 	/**
 	 * get student info
 	 */
@@ -139,30 +141,31 @@ public class GUIView extends JFrame
 	 * Method exit ActionListener
 	 */
 
-	public void registerActionListener(Controller.ExitListener exitListener, Controller.AddStudentButtonListener addListener, Controller.RemoveButtonListener removeListener)
+	public void registerActionListener(Controller.ExitListener exitListener,
+			Controller.AddStudentButtonListener addListener,
+			Controller.RemoveButtonListener removeListener)
 	{
 		exitButton.addActionListener(exitListener);
 		addButton.addActionListener(addListener);
-		for(JButton removeButton: removeButtons)
+		for (JButton removeButton : removeButtons)
 		{
 			removeButton.addActionListener(removeListener);
 		}
 	}
-	
+
 	/**
 	 * Method get index of the line of remove button and student
 	 */
 	public int getIndex(JButton button)
 	{
-		
-	
-	for(int i = 0; i < removeButtons.length ; i++)
-	{
-		if(button == removeButtons[i])
+
+		for (int i = 0; i < removeButtons.length; i++)
 		{
-			return i;
+			if (button == removeButtons[i])
+			{
+				return i;
+			}
 		}
-	}
 		return -1;
 	}
 }

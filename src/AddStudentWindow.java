@@ -21,7 +21,6 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	private JButton addButton;
 	private JButton exitButton;
 	private JPanel southPanel;
-	// private GUIView view;
 	private StudentInformation studentInfo;
 	private JComboBox<String> comboBox;
 	private JPanel northPanel;
@@ -36,7 +35,6 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		add(centerPanel, BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
 		add(northPanel, BorderLayout.NORTH);
-		
 
 		// set the program to end when the window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,7 +102,8 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	/*
 	 * Method check if the name is valid
 	 * @param name
-	 * @return if name contains character that is not letter return false, otherwise return true
+	 * @return if name contains character that is not letter return false,
+	 * otherwise return true
 	 */
 	public boolean isValidName(String name)
 	{
@@ -122,6 +121,7 @@ public class AddStudentWindow extends JFrame implements ActionListener
 
 	/**
 	 * Method check if Id is valid or not
+	 * 
 	 * @param ID
 	 * @return if ID only contain number return true otherwise returns false
 	 */
@@ -142,9 +142,10 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		
-		//add button action
-		//check the name and id if they are valid and check the id if it was already added in the class
+
+		// add button action
+		// check the name and id if they are valid and check the id if it was
+		// already added in the class
 		if (e.getSource() == addButton)
 		{
 
@@ -152,24 +153,25 @@ public class AddStudentWindow extends JFrame implements ActionListener
 			String ID = IDTextField.getText();
 			String type = (String) comboBox.getSelectedItem();
 
-			//check if the name and ID are valid
+			// check if the name and ID are valid
 			if (!isValidName(name) || !isValidID(ID))
 			{
-				statusLabel.setText("Fail");
+				statusLabel.setText("Name or ID is invalid");
 			}
 			else
 			{
-				
+
 				int newID = Integer.valueOf(ID);
-				//check if the ID already exist in the class
+				// check if the ID already exist in the class
 				if (studentInfo.containID(newID))
 				{
 					statusLabel.setText("ID already exists");
 				}
-				//if id does not exist create new student object based on the info
+				// if id does not exist create new student object based on the
+				// info
 				else
 				{
-					
+
 					Student student;
 					if (type.equals("Exchange"))
 					{
@@ -203,11 +205,11 @@ public class AddStudentWindow extends JFrame implements ActionListener
 				}
 			}
 		}
-		
-		//close the window
-		if(e.getSource() == exitButton)
+
+		// close the window
+		if (e.getSource() == exitButton)
 		{
-			System.exit(0);
+			dispose();
 		}
 
 	}

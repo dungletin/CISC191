@@ -1,8 +1,6 @@
 
 public class HonoredStudent extends Student
 {
-	
-	private final String type = "Honored";
 
 	public HonoredStudent(String name, int ID)
 	{
@@ -12,7 +10,7 @@ public class HonoredStudent extends Student
 	@Override
 	public String toString()
 	{
-		return super.getID() + "-" + super.getName() + "-" + type;
+		return super.getID() + "-" + super.getName() + "-Honored";
 	}
 
 }

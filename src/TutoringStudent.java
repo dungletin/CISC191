@@ -2,8 +2,6 @@
 public class TutoringStudent extends Student
 {
 
-	private final String type = "Tutoring";
-
 	public TutoringStudent(String name, int ID)
 	{
 		super(name, ID);
@@ -12,6 +10,6 @@ public class TutoringStudent extends Student
 	@Override
 	public String toString()
 	{
-		return super.getID() + "-" + super.getName() + "-" + type;
+		return super.getID() + "-" + super.getName() + "-Tutoring";
 	}
 }

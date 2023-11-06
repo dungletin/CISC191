@@ -112,6 +112,11 @@ public class StudentInformation
 
 	}
 
+	/**
+	 * Method remove the student then rewrite the student info into the file
+	 * @param index
+	 * @throws IOException
+	 */
 	public void removeStudent(int index) throws IOException
 	{
 

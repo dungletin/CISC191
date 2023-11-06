@@ -8,7 +8,6 @@ public class Controller
 {
 
 	private GUIView view;
-	private Student student;
 
 	/**
 	 * Constructor
@@ -18,8 +17,9 @@ public class Controller
 	public Controller(GUIView view)
 	{
 		this.view = view;
-		view.registerActionListener(new ExitListener(), new AddStudentButtonListener(), new RemoveButtonListener());
-		
+		view.registerActionListener(new ExitListener(),
+				new AddStudentButtonListener(), new RemoveButtonListener());
+
 	}
 
 	/**
@@ -42,22 +42,30 @@ public class Controller
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			
+
 			new AddStudentWindow(view.getStudentInfo());
 			view.dispose();
 		}
 	}
-	
-	
+
+	/**
+	 * RemoveButton class
+	 */
 	public class RemoveButtonListener implements ActionListener
 	{
-		
+
+		/**
+		 * Method remove the student from the class
+		 * Remove student in student list by getting the index of the remove button in the array of removebutton
+		 * then use that index to remove the student in the student ArrayList
+		 */
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			try
 			{
-				view.getStudentInfo().removeStudent(view.getIndex((JButton) e.getSource()));
+				view.getStudentInfo()
+						.removeStudent(view.getIndex((JButton) e.getSource()));
 				new Controller(new GUIView());
 				view.dispose();
 			}
@@ -67,9 +75,7 @@ public class Controller
 				e1.printStackTrace();
 			}
 		}
-		
+
 	}
-	
-	
-	
+
 }
