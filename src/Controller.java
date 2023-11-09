@@ -48,9 +48,7 @@ public class Controller
 		}
 	}
 
-	/**
-	 * RemoveButton class
-	 */
+
 	public class RemoveButtonListener implements ActionListener
 	{
 

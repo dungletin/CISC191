@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,20 +18,34 @@ public class StudentInformation
 	public StudentInformation()
 
 	{
-		readFile();
+		try
+		{
+			readFile();
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * Method read the file and add information that has been read in to the
 	 * student array list
 	 * 
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 * 
 	 */
-	public void readFile()
+	public void readFile() throws FileNotFoundException, IOException
 	{
+		BufferedReader reader = null;
 		try
 		{
-			BufferedReader reader = new BufferedReader(
-					new FileReader("text.txt"));
+			reader = new BufferedReader(new FileReader("text.txt"));
 			String line;
 			while ((line = reader.readLine()) != null)
 			{
@@ -69,14 +84,21 @@ public class StudentInformation
 
 				students.add(student);
 			}
-			reader.close();
-
+		}
+		catch (FileNotFoundException e)
+		{
+			throw e;
 		}
 		catch (IOException e)
 		{
-
 			e.printStackTrace();
 		}
+		finally
+		{
+			reader.close();
+
+		}
+
 	}
 
 	/**
@@ -114,6 +136,7 @@ public class StudentInformation
 
 	/**
 	 * Method remove the student then rewrite the student info into the file
+	 * 
 	 * @param index
 	 * @throws IOException
 	 */
