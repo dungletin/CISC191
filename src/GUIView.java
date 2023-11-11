@@ -23,8 +23,8 @@ public class GUIView extends JFrame
 
 	private int numberOfStudents;
 	private JLabel[] infoLabels;
-	private JButton[] removeButtons;
-	private JPanel[] panelsOfStudent;
+	private ArrayList<JButton> removeButtons;
+	private ArrayList<JPanel> panelsOfStudent;
 	private JButton[] editButtons;
 	private StudentInformation studentInfo;
 
@@ -74,8 +74,8 @@ public class GUIView extends JFrame
 	{
 
 		infoLabels = new JLabel[students.size()];
-		removeButtons = new JButton[students.size()];
-		panelsOfStudent = new JPanel[students.size()];
+		removeButtons = new ArrayList<JButton>();
+		panelsOfStudent = new ArrayList<JPanel>();
 		editButtons = new JButton[students.size()];
 
 		// for loop to create label base on the students array
@@ -83,16 +83,18 @@ public class GUIView extends JFrame
 		{
 			// create labels remove buttons and panels of students
 			infoLabels[i] = new JLabel();
-			removeButtons[i] = new JButton("Remove");
-			panelsOfStudent[i] = new JPanel();
+			removeButtons.add(new JButton("Remove")) ;
+			
+			
+			panelsOfStudent.add(new JPanel());
 			editButtons[i] = new JButton("Edit");
 
 			// set the text for label
 			infoLabels[i].setText(students.get(i).getNameAndID());
 			// add label and remove button into the panel
-			panelsOfStudent[i].add(infoLabels[i]);
-			panelsOfStudent[i].add(editButtons[i]);
-			panelsOfStudent[i].add(removeButtons[i]);
+			panelsOfStudent.get(i).add(infoLabels[i]);
+			panelsOfStudent.get(i).add(editButtons[i]);
+			panelsOfStudent.get(i).add(removeButtons.get(i));
 
 		}
 
@@ -107,7 +109,7 @@ public class GUIView extends JFrame
 		{
 			// mainPanel.add(infoLabels[i]);
 			// mainPanel.add(removeButtons[i]);
-			mainPanel.add(panelsOfStudent[i]);
+			mainPanel.add(panelsOfStudent.get(i));
 		}
 	}
 
@@ -152,6 +154,9 @@ public class GUIView extends JFrame
 			removeButton.addActionListener(removeListener);
 		}
 	}
+	
+	
+	
 
 	/**
 	 * Method get index of the line of remove button and student
@@ -159,13 +164,29 @@ public class GUIView extends JFrame
 	public int getIndex(JButton button)
 	{
 
-		for (int i = 0; i < removeButtons.length; i++)
+		for (int i = 0; i < removeButtons.size(); i++)
 		{
-			if (button == removeButtons[i])
+			if (button == removeButtons.get(i))
 			{
 				return i;
 			}
 		}
 		return -1;
+	}
+	
+
+	
+	
+	/**
+	 * method reset the main panel and remove the component from the panel by its index
+	 * @param index
+	 */
+	public void refreshMainPanel(int index) {
+		mainPanel.remove(index);
+		panelsOfStudent.remove(index);
+		removeButtons.remove(index);
+		revalidate();
+		repaint();
+		
 	}
 }

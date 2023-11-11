@@ -12,4 +12,9 @@ public class ExchangeStudent extends Student
 	{
 		return super.getID() + "-" + super.getName() + "-Exchange";
 	}
+	@Override
+	public String getNameAndID()
+	{
+		return "ID: " + super.getID() + " | Name: " + super.getName() + " | Grade: " + super.getGrade() + "% | " + "Exchange";
+	}
 }

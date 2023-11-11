@@ -62,10 +62,18 @@ public class Controller
 		{
 			try
 			{
+				int index = view.getIndex((JButton) e.getSource());
+				//remove student in the array list
 				view.getStudentInfo()
-						.removeStudent(view.getIndex((JButton) e.getSource()));
-				new Controller(new GUIView());
-				view.dispose();
+						.removeStudent(index);
+				
+				
+//				new Controller(new GUIView());
+//				view.dispose();
+				//remove component from the panel by the JButton index
+//				view.removePanelOfStudent(index);
+				view.refreshMainPanel(index);
+			
 			}
 			catch (IOException e1)
 			{

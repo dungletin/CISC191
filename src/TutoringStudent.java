@@ -12,4 +12,11 @@ public class TutoringStudent extends Student
 	{
 		return super.getID() + "-" + super.getName() + "-Tutoring";
 	}
+	
+	
+	@Override
+	public String getNameAndID()
+	{
+		return "ID: " + super.getID() + " | Name: " + super.getName() + " | Grade: " + super.getGrade() + "% | " + "Tutoring";
+	}
 }

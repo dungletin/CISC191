@@ -12,5 +12,12 @@ public class HonoredStudent extends Student
 	{
 		return super.getID() + "-" + super.getName() + "-Honored";
 	}
+	
+	
+	@Override
+	public String getNameAndID()
+	{
+		return "ID: " + super.getID() + " | Name: " + super.getName() + " | Grade: " + super.getGrade() + "% | " + "Honored";
+	}
 
 }

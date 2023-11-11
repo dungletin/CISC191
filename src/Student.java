@@ -13,7 +13,7 @@ public class Student
 
 	public String getNameAndID()
 	{
-		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "%";
+		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "% | " + "Regular";
 	}
 
 	public String toString()
@@ -34,6 +34,12 @@ public class Student
 	public String getName()
 	{
 		return name;
+	}
+	
+	
+	public int getGrade()
+	{
+		return this.grade;
 	}
 
 }
