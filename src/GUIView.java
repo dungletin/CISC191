@@ -61,7 +61,7 @@ public class GUIView extends JFrame
 	{
 
 		mainPanel = new JPanel();
-		mainPanel.setLayout(new GridLayout(students.size(), 1));
+		mainPanel.setLayout(new GridLayout(0, 1));
 		createLabel();
 		addPanel();
 
@@ -185,8 +185,7 @@ public class GUIView extends JFrame
 		mainPanel.remove(index);
 		panelsOfStudent.remove(index);
 		removeButtons.remove(index);
-		revalidate();
-		repaint();
-		
+		mainPanel.revalidate();
+		mainPanel.repaint();
 	}
 }
