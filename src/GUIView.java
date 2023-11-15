@@ -21,7 +21,6 @@ public class GUIView extends JFrame
 	private JPanel northPanel;
 	private JPanel southPanel;
 
-	private int numberOfStudents;
 	private JLabel[] infoLabels;
 	private ArrayList<JButton> removeButtons;
 	private ArrayList<JPanel> panelsOfStudent;
@@ -87,7 +86,7 @@ public class GUIView extends JFrame
 			
 			
 			panelsOfStudent.add(new JPanel());
-			editButtons[i] = new JButton("Edit");
+			editButtons[i] = new JButton("Edit Grade");
 
 			// set the text for label
 			infoLabels[i].setText(students.get(i).getNameAndID());

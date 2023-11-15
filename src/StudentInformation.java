@@ -56,7 +56,6 @@ public class StudentInformation
 				// use the name to create a new student object
 				// then add student into the array
 				Student student;
-
 				String name = info[1];
 				int ID = Integer.valueOf(info[0]);
 				String type = info[2];
