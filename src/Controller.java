@@ -18,8 +18,8 @@ public class Controller
 	{
 		this.view = view;
 		view.registerActionListener(new ExitListener(),
-				new AddStudentButtonListener(), new RemoveButtonListener());
-
+				new AddStudentButtonListener(), new RemoveButtonListener(),
+				new EditButtonListener());
 	}
 
 	/**
@@ -48,13 +48,13 @@ public class Controller
 		}
 	}
 
-
 	public class RemoveButtonListener implements ActionListener
 	{
 
 		/**
 		 * Method remove the student from the class
-		 * Remove student in student list by getting the index of the remove button in the array of removebutton
+		 * Remove student in student list by getting the index of the remove
+		 * button in the array of removebutton
 		 * then use that index to remove the student in the student ArrayList
 		 */
 		@Override
@@ -63,23 +63,35 @@ public class Controller
 			try
 			{
 				int index = view.getIndex((JButton) e.getSource());
-				//remove student in the array list
-				view.getStudentInfo()
-						.removeStudent(index);
-				
-				
-//				new Controller(new GUIView());
-//				view.dispose();
-				//remove component from the panel by the JButton index
-//				view.removePanelOfStudent(index);
+				// remove student in the array list
+				view.getStudentInfo().removeStudent(index);
+
+				// new Controller(new GUIView());
+				// view.dispose();
+				// remove component from the panel by the JButton index
+				// view.removePanelOfStudent(index);
 				view.refreshMainPanel(index);
-			
+
 			}
 			catch (IOException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}
+
+	}
+
+	public class EditButtonListener implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			int index = view.getIndex((JButton) e.getSource());
+			
+			new EditGradeWindow(view.getStudentInfo(), index);
+			view.dispose();
 		}
 
 	}

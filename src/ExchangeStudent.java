@@ -10,7 +10,7 @@ public class ExchangeStudent extends Student
 	@Override
 	public String toString()
 	{
-		return super.getID() + "-" + super.getName() + "-Exchange";
+		return super.getID() + "-" + super.getName() + "-Exchange-" + super.getGrade();
 	}
 	@Override
 	public String getNameAndID()

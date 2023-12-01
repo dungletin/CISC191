@@ -10,7 +10,7 @@ public class TutoringStudent extends Student
 	@Override
 	public String toString()
 	{
-		return super.getID() + "-" + super.getName() + "-Tutoring";
+		return super.getID() + "-" + super.getName() + "-Tutoring-"+super.getGrade();
 	}
 	
 	

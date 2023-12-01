@@ -10,7 +10,7 @@ public class HonoredStudent extends Student
 	@Override
 	public String toString()
 	{
-		return super.getID() + "-" + super.getName() + "-Honored";
+		return super.getID() + "-" + super.getName() + "-Honored-"+getGrade();
 	}
 	
 	

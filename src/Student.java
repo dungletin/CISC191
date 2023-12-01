@@ -18,7 +18,7 @@ public class Student
 
 	public String toString()
 	{
-		return ID + "-" + name + "-Regular";
+		return ID + "-" + name + "-Regular-"+ getGrade();
 	}
 
 	public int getID()

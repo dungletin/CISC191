@@ -6,6 +6,7 @@ public class Test
 	 new Controller(new GUIView());
 //		new AddStudentWindow(new StudentInformation());
 //		new GUIView(new StudentInformation());
+		
 
 	}
 }

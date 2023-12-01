@@ -59,26 +59,31 @@ public class StudentInformation
 				String name = info[1];
 				int ID = Integer.valueOf(info[0]);
 				String type = info[2];
+				int grade = Integer.valueOf(info[3]);
 
 				// check the third word in the line to see the type and create
 				// it by that type
 				if (type.equals("Exchange"))
 				{
 					student = new ExchangeStudent(name, ID);
+					student.setGrade(grade);
 				}
 				else if (type.equals("Honored"))
 				{
 					student = new HonoredStudent(name, ID);
+					student.setGrade(grade);
 
 				}
 				else if (type.equals("Tutoring"))
 				{
 					student = new TutoringStudent(name, ID);
+					student.setGrade(grade);
 
 				}
 				else
 				{
 					student = new Student(name, ID);
+					student.setGrade(grade);
 				}
 
 				students.add(student);
@@ -134,6 +139,23 @@ public class StudentInformation
 	}
 
 	/**
+	 * Method write the student info into the list
+	 * @throws IOException 
+	 */
+	public void writeFile() throws IOException
+	{
+		File outFile = new File("text.txt");
+		FileWriter fWriter = new FileWriter(outFile);
+		PrintWriter pWriter = new PrintWriter(fWriter);
+		for (int i = 0; i < students.size(); i++)
+		{
+			pWriter.println(students.get(i).toString());
+			
+		}
+		pWriter.close();
+	}
+
+	/**
 	 * Method remove the student then rewrite the student info into the file
 	 * 
 	 * @param index
@@ -172,6 +194,23 @@ public class StudentInformation
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * method set grade for student
+	 */
+	public void setGrade(int grade, int index)
+	{
+		students.get(index).setGrade(grade);
+		try
+		{
+			writeFile();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

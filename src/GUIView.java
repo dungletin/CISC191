@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -144,7 +145,7 @@ public class GUIView extends JFrame
 
 	public void registerActionListener(Controller.ExitListener exitListener,
 			Controller.AddStudentButtonListener addListener,
-			Controller.RemoveButtonListener removeListener)
+			Controller.RemoveButtonListener removeListener, Controller.EditButtonListener editListener)
 	{
 		exitButton.addActionListener(exitListener);
 		addButton.addActionListener(addListener);
@@ -152,22 +153,49 @@ public class GUIView extends JFrame
 		{
 			removeButton.addActionListener(removeListener);
 		}
+		for (JButton editButton : editButtons)
+		{
+			editButton.addActionListener(editListener);
+		}
 	}
 	
 	
 	
 
 	/**
-	 * Method get index of the line of remove button and student
+//	 * Method get index of the line of remove button and student
+//	 */
+//	public int getIndex(JButton button)
+//	{
+//
+//		for (int i = 0; i < removeButtons.size(); i++)
+//		{
+//			if (button == removeButtons.get(i))
+//			{
+//				return i;
+//			}
+//		}
+//		return -1;
+//	}
+	
+	
+	/**
+	 * Method get index
 	 */
 	public int getIndex(JButton button)
 	{
-
-		for (int i = 0; i < removeButtons.size(); i++)
+		JPanel panel;
+		for(int i = 0; i < panelsOfStudent.size(); i++)
 		{
-			if (button == removeButtons.get(i))
+			panel = panelsOfStudent.get(i);
+			Component[] components = panel.getComponents();
+			
+			for(Component component : components)
 			{
-				return i;
+				if(component.equals(button))
+				{
+					return i;
+				}
 			}
 		}
 		return -1;
