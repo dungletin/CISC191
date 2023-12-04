@@ -140,7 +140,8 @@ public class StudentInformation
 
 	/**
 	 * Method write the student info into the list
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	public void writeFile() throws IOException
 	{
@@ -150,7 +151,7 @@ public class StudentInformation
 		for (int i = 0; i < students.size(); i++)
 		{
 			pWriter.println(students.get(i).toString());
-			
+
 		}
 		pWriter.close();
 	}

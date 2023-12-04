@@ -75,7 +75,6 @@ public class Controller
 			}
 			catch (IOException e1)
 			{
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
@@ -89,7 +88,6 @@ public class Controller
 		public void actionPerformed(ActionEvent e)
 		{
 			int index = view.getIndex((JButton) e.getSource());
-			
 			new EditGradeWindow(view.getStudentInfo(), index);
 			view.dispose();
 		}

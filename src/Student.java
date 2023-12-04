@@ -1,4 +1,4 @@
-	
+
 public class Student
 {
 	private String name;
@@ -13,19 +13,20 @@ public class Student
 
 	public String getNameAndID()
 	{
-		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "% | " + "Regular";
+		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "% | "
+				+ "Regular";
 	}
 
 	public String toString()
 	{
-		return ID + "-" + name + "-Regular-"+ getGrade();
+		return ID + "-" + name + "-Regular-" + getGrade();
 	}
 
 	public int getID()
 	{
 		return ID;
 	}
-	
+
 	public void setGrade(int grade)
 	{
 		this.grade = grade;
@@ -35,8 +36,7 @@ public class Student
 	{
 		return name;
 	}
-	
-	
+
 	public int getGrade()
 	{
 		return this.grade;

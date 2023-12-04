@@ -109,16 +109,17 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 		if (e.getSource() == saveButton)
 		{
-			
+
 			String grade = gradeTextField.getText();
-			
+
 			if (!isValidGrade(grade))
 			{
 				titleLabel.setText("Something Wrong");
-			} else
+			}
+			else
 			{
-				studentInfo.setGrade(Integer.valueOf(grade),index);
-				
+				studentInfo.setGrade(Integer.valueOf(grade), index);
+
 				new Controller(new GUIView());
 				dispose();
 			}
