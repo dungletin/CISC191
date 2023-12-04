@@ -7,8 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class GUIView extends JFrame
 {
@@ -83,9 +81,8 @@ public class GUIView extends JFrame
 		{
 			// create labels remove buttons and panels of students
 			infoLabels[i] = new JLabel();
-			removeButtons.add(new JButton("Remove")) ;
-			
-			
+			removeButtons.add(new JButton("Remove"));
+
 			panelsOfStudent.add(new JPanel());
 			editButtons[i] = new JButton("Edit Grade");
 
@@ -145,7 +142,8 @@ public class GUIView extends JFrame
 
 	public void registerActionListener(Controller.ExitListener exitListener,
 			Controller.AddStudentButtonListener addListener,
-			Controller.RemoveButtonListener removeListener, Controller.EditButtonListener editListener)
+			Controller.RemoveButtonListener removeListener,
+			Controller.EditButtonListener editListener)
 	{
 		exitButton.addActionListener(exitListener);
 		addButton.addActionListener(addListener);
@@ -158,41 +156,38 @@ public class GUIView extends JFrame
 			editButton.addActionListener(editListener);
 		}
 	}
-	
-	
-	
 
 	/**
-//	 * Method get index of the line of remove button and student
-//	 */
-//	public int getIndex(JButton button)
-//	{
-//
-//		for (int i = 0; i < removeButtons.size(); i++)
-//		{
-//			if (button == removeButtons.get(i))
-//			{
-//				return i;
-//			}
-//		}
-//		return -1;
-//	}
-	
-	
+	 * // * Method get index of the line of remove button and student
+	 * //
+	 */
+	// public int getIndex(JButton button)
+	// {
+	//
+	// for (int i = 0; i < removeButtons.size(); i++)
+	// {
+	// if (button == removeButtons.get(i))
+	// {
+	// return i;
+	// }
+	// }
+	// return -1;
+	// }
+
 	/**
 	 * Method get index
 	 */
 	public int getIndex(JButton button)
 	{
 		JPanel panel;
-		for(int i = 0; i < panelsOfStudent.size(); i++)
+		for (int i = 0; i < panelsOfStudent.size(); i++)
 		{
 			panel = panelsOfStudent.get(i);
 			Component[] components = panel.getComponents();
-			
-			for(Component component : components)
+
+			for (Component component : components)
 			{
-				if(component.equals(button))
+				if (component.equals(button))
 				{
 					return i;
 				}
@@ -200,15 +195,15 @@ public class GUIView extends JFrame
 		}
 		return -1;
 	}
-	
 
-	
-	
 	/**
-	 * method reset the main panel and remove the component from the panel by its index
+	 * method reset the main panel and remove the component from the panel by
+	 * its index
+	 * 
 	 * @param index
 	 */
-	public void refreshMainPanel(int index) {
+	public void refreshMainPanel(int index)
+	{
 		mainPanel.remove(index);
 		panelsOfStudent.remove(index);
 		removeButtons.remove(index);
