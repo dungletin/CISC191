@@ -27,6 +27,11 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	private JLabel titleLabel;
 	private JLabel statusLabel;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param studentInfo
+	 */
 	public AddStudentWindow(StudentInformation studentInfo)
 	{
 		this.studentInfo = studentInfo;
@@ -99,11 +104,12 @@ public class AddStudentWindow extends JFrame implements ActionListener
 
 	}
 
-	/*
+	/**
 	 * Method check if the name is valid
+	 * 
 	 * @param name
 	 * @return if name contains character that is not letter return false,
-	 * otherwise return true
+	 *         otherwise return true
 	 */
 	public boolean isValidName(String name)
 	{
@@ -139,6 +145,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		return true;
 	}
 
+	/**
+	 * Action Listener for add button and exit button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -199,7 +208,6 @@ public class AddStudentWindow extends JFrame implements ActionListener
 					}
 					catch (IOException e1)
 					{
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}

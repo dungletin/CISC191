@@ -24,6 +24,11 @@ public class EditGradeWindow extends JFrame implements ActionListener
 	private StudentInformation studentInfo;
 	private int index;
 
+	/**
+	 * Constructor
+	 * @param studentInfo
+	 * @param index
+	 */
 	public EditGradeWindow(StudentInformation studentInfo, int index)
 	{
 		this.studentInfo = studentInfo;
@@ -96,17 +101,19 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 	}
 
-	/*
-	 * Controller for button
-	 */
+/**
+ * Action Listener for exit button and save button
+ */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		//exit button
 		if (e.getSource() == exitButton)
 		{
 			System.exit(0);
 		}
 
+		//save button
 		if (e.getSource() == saveButton)
 		{
 
@@ -119,7 +126,6 @@ public class EditGradeWindow extends JFrame implements ActionListener
 			else
 			{
 				studentInfo.setGrade(Integer.valueOf(grade), index);
-
 				new Controller(new GUIView());
 				dispose();
 			}

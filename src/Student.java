@@ -5,12 +5,22 @@ public class Student
 	private int ID;
 	private int grade;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 * @param ID
+	 */
 	public Student(String name, int ID)
 	{
 		this.name = name;
 		this.ID = ID;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNameAndID()
 	{
 		return "ID: " + ID + " | Name: " + name + " | Grade: " + grade + "% | "
