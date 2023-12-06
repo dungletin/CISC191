@@ -139,6 +139,21 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		return true;
 	}
 
+	/**
+	 * Method check if the text field is empty
+	 * 
+	 * @return true if empty, otherwise
+	 */
+	public boolean isEmpty(String text)
+	{
+		if (text.isEmpty())
+		{
+			return true;
+		}
+		return false;
+
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -154,7 +169,11 @@ public class AddStudentWindow extends JFrame implements ActionListener
 			String type = (String) comboBox.getSelectedItem();
 
 			// check if the name and ID are valid
-			if (!isValidName(name) || !isValidID(ID))
+			if (isEmpty(name) || isEmpty(ID))
+			{
+				statusLabel.setText("Please enter the name or ID");
+			}
+			else if (!isValidName(name) || !isValidID(ID))
 			{
 				statusLabel.setText("Name or ID is invalid");
 			}
