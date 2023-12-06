@@ -146,8 +146,25 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Action Listener for add button and exit button
 	 */
+=======
+	 * Method check if the text field is empty
+	 * 
+	 * @return true if empty, otherwise
+	 */
+	public boolean isEmpty(String text)
+	{
+		if (text.isEmpty())
+		{
+			return true;
+		}
+		return false;
+
+	}
+
+>>>>>>> 83503c19065f27a31f5eb42d9abbc1996e2d14f3
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -163,7 +180,11 @@ public class AddStudentWindow extends JFrame implements ActionListener
 			String type = (String) comboBox.getSelectedItem();
 
 			// check if the name and ID are valid
-			if (!isValidName(name) || !isValidID(ID))
+			if (isEmpty(name) || isEmpty(ID))
+			{
+				statusLabel.setText("Please enter the name or ID");
+			}
+			else if (!isValidName(name) || !isValidID(ID))
 			{
 				statusLabel.setText("Name or ID is invalid");
 			}
