@@ -146,10 +146,8 @@ public class AddStudentWindow extends JFrame implements ActionListener
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Action Listener for add button and exit button
-	 */
-=======
+	 *
 	 * Method check if the text field is empty
 	 * 
 	 * @return true if empty, otherwise
@@ -164,7 +162,6 @@ public class AddStudentWindow extends JFrame implements ActionListener
 
 	}
 
->>>>>>> 83503c19065f27a31f5eb42d9abbc1996e2d14f3
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -242,5 +239,4 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		}
 
 	}
-
-}
+}	

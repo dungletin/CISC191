@@ -51,5 +51,14 @@ public class Student
 	{
 		return this.grade;
 	}
+	
+	
+	/**
+	 * Method that calculates the grade
+	 */
+	public int calculateGrade(int newGrade)
+	{
+		return newGrade;
+	}
 
 }

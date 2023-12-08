@@ -26,6 +26,7 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 	/**
 	 * Constructor
+	 * 
 	 * @param studentInfo
 	 * @param index
 	 */
@@ -101,19 +102,19 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 	}
 
-/**
- * Action Listener for exit button and save button
- */
+	/**
+	 * Action Listener for exit button and save button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		//exit button
+		// exit button
 		if (e.getSource() == exitButton)
 		{
 			System.exit(0);
 		}
 
-		//save button
+		// save button
 		if (e.getSource() == saveButton)
 		{
 

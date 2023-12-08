@@ -4,6 +4,7 @@ public class HonoredStudent extends Student
 
 	/**
 	 * Constructor
+	 * 
 	 * @param name
 	 * @param ID
 	 */
@@ -14,6 +15,7 @@ public class HonoredStudent extends Student
 
 	/**
 	 * toString method
+	 * 
 	 * @return String
 	 */
 	@Override
@@ -30,6 +32,21 @@ public class HonoredStudent extends Student
 	{
 		return "ID: " + super.getID() + " | Name: " + super.getName()
 				+ " | Grade: " + super.getGrade() + "% | " + "Honored";
+	}
+
+	/**
+	 * Method calculate grade for honored student
+	 * Honored student will receive 10% extra
+	 */
+	public int calculateGrade(int grade)
+	{
+		int newGrade = grade * 110 / 100;
+		if (newGrade > 100)
+		{
+			return 100;
+		}
+
+		return newGrade;
 	}
 
 }

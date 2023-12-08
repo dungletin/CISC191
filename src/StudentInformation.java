@@ -202,14 +202,15 @@ public class StudentInformation
 	 */
 	public void setGrade(int grade, int index)
 	{
-		students.get(index).setGrade(grade);
+		
+		int newGrade = students.get(index).calculateGrade(grade);
+		students.get(index).setGrade(newGrade);
 		try
 		{
 			writeFile();
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
