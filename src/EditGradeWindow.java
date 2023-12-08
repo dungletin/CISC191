@@ -24,15 +24,12 @@ public class EditGradeWindow extends JFrame implements ActionListener
 	private StudentInformation studentInfo;
 	private int index;
 
-<<<<<<< HEAD
 	/**
 	 * Constructor
 	 * 
 	 * @param studentInfo
 	 * @param index
 	 */
-=======
->>>>>>> 79892a35da86d558f0792839d1723147159e2be0
 	public EditGradeWindow(StudentInformation studentInfo, int index)
 	{
 		this.studentInfo = studentInfo;

@@ -1,4 +1,6 @@
 184-Tien Dung-Regular-78
 14192-John B-Regular-100
-149412-John A-Honored-60
-890-tien-Honored-90
+149412-John A-Honored-66
+890-tien-Honored-99
+4912-Tien Dung Le-Regular-31
+1231-Meidyn Nguyen-Exchange-0
