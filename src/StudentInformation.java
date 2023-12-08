@@ -202,8 +202,9 @@ public class StudentInformation
 	 */
 	public void setGrade(int grade, int index)
 	{
-		
+		//calculate the grade
 		int newGrade = students.get(index).calculateGrade(grade);
+		//set the grade
 		students.get(index).setGrade(newGrade);
 		try
 		{
