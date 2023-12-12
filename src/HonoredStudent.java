@@ -38,6 +38,7 @@ public class HonoredStudent extends Student
 	 * Method calculate grade for honored student
 	 * Honored student will receive 10% extra
 	 */
+	@Override
 	public int calculateGrade(int grade)
 	{
 		int newGrade = grade * 110 / 100;
