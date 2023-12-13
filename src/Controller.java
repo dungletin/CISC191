@@ -4,6 +4,26 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Tien Dung Le
+ * @author Meidyn Nguyen
+ * 
+ * 
+ *         References:
+ *         Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented
+ *         Problem Solving.
+ *         Retrieved from
+ *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * 
+ *         Version/date: 12/12/2023
+ * 
+ *         Responsibilities of class: Controller for the button in the main
+ *         window
+ * 
+ */
 public class Controller
 {
 
@@ -23,7 +43,7 @@ public class Controller
 	}
 
 	/**
-	 * Exit Button Listener
+	 * Exit Button which exit the system
 	 */
 	public class ExitListener implements ActionListener
 	{
@@ -48,6 +68,9 @@ public class Controller
 		}
 	}
 
+	/**
+	 * Remove button listener which remove the student from the list
+	 */
 	public class RemoveButtonListener implements ActionListener
 	{
 
@@ -82,7 +105,7 @@ public class Controller
 	}
 
 	/**
-	 * EditButtonListener
+	 * EditButtonListener which allows user to edit grade
 	 */
 	public class EditButtonListener implements ActionListener
 	{

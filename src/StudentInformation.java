@@ -7,6 +7,27 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Tien Dung Le
+ * @author Meidyn Nguyen
+ * 
+ * 
+ *         References:
+ *         Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented
+ *         Problem Solving.
+ *         Retrieved from
+ *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * 
+ *         Version/date: 12/12/2023
+ * 
+ *         Responsibilities of class: Student Information holds all of the
+ *         student information and
+ *         can access the file (edit, add, remove,...)
+ * 
+ */
 public class StudentInformation
 {
 
@@ -35,6 +56,9 @@ public class StudentInformation
 	/**
 	 * Method read the file and add information that has been read in to the
 	 * student array list
+	 * Read the file and split the String and create student object then add
+	 * into the
+	 * ArrayList
 	 * 
 	 * @throws IOException
 	 * @throws FileNotFoundException
@@ -202,9 +226,9 @@ public class StudentInformation
 	 */
 	public void setGrade(int grade, int index)
 	{
-		//calculate the grade
+		// calculate the grade
 		int newGrade = students.get(index).calculateGrade(grade);
-		//set the grade
+		// set the grade
 		students.get(index).setGrade(newGrade);
 		try
 		{

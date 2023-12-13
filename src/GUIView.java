@@ -8,6 +8,26 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Tien Dung Le
+ * @author Meidyn Nguyen
+ * 
+ * 
+ *         References:
+ *         Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented
+ *         Problem Solving.
+ *         Retrieved from
+ *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * 
+ *         Version/date: 12/12/2023
+ * 
+ *         Responsibilities of class: The main window
+ *         window
+ * 
+ */
 public class GUIView extends JFrame
 {
 
@@ -67,6 +87,7 @@ public class GUIView extends JFrame
 
 	/**
 	 * method creates the label of student information
+	 * Each component will have its index by the line
 	 */
 	public void createLabel()
 	{
@@ -130,6 +151,8 @@ public class GUIView extends JFrame
 
 	/**
 	 * get student info
+	 * 
+	 * @return StudentInforMation
 	 */
 	public StudentInformation getStudentInfo()
 	{
@@ -137,9 +160,8 @@ public class GUIView extends JFrame
 	}
 
 	/**
-	 * Method exit ActionListener
+	 * Method register all of the listeners for button
 	 */
-
 	public void registerActionListener(Controller.ExitListener exitListener,
 			Controller.AddStudentButtonListener addListener,
 			Controller.RemoveButtonListener removeListener,
@@ -158,24 +180,8 @@ public class GUIView extends JFrame
 	}
 
 	/**
-	 * // * Method get index of the line of remove button and student
-	 * //
-	 */
-	// public int getIndex(JButton button)
-	// {
-	//
-	// for (int i = 0; i < removeButtons.size(); i++)
-	// {
-	// if (button == removeButtons.get(i))
-	// {
-	// return i;
-	// }
-	// }
-	// return -1;
-	// }
-
-	/**
-	 * Method get index
+	 * Method get index by the line in the window to access the component by its
+	 * index
 	 */
 	public int getIndex(JButton button)
 	{

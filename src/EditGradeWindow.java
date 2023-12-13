@@ -11,6 +11,27 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Tien Dung Le
+ * @author Meidyn Nguyen
+ * 
+ * 
+ *         References:
+ *         Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented
+ *         Problem Solving.
+ *         Retrieved from
+ *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * 
+ *         Version/date: 12/12/2023
+ * 
+ *         Responsibilities of class: Create a window allows user to edit the
+ *         grade
+ *         window
+ * 
+ */
 public class EditGradeWindow extends JFrame implements ActionListener
 {
 	private JPanel tittlePanel;
@@ -79,6 +100,12 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 	}
 
+	/**
+	 * Method that check if the grade contains only number
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public boolean isValidGrade(String text)
 	{
 		char[] chars = text.toCharArray();
@@ -104,7 +131,7 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 	/**
 	 * Action Listener for exit button and save button
-	/*
+	 * /*
 	 * Controller for button
 	 */
 	@Override
@@ -118,7 +145,6 @@ public class EditGradeWindow extends JFrame implements ActionListener
 			System.exit(0);
 		}
 
-
 		// save button
 
 		if (e.getSource() == saveButton)
@@ -126,7 +152,7 @@ public class EditGradeWindow extends JFrame implements ActionListener
 
 			String grade = gradeTextField.getText();
 
-			if(grade.isEmpty())
+			if (grade.isEmpty())
 			{
 				titleLabel.setText("");
 			}

@@ -11,6 +11,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Lead Author(s):
+ * 
+ * @author Tien Dung Le
+ * @author Meidyn Nguyen
+ * 
+ * 
+ *         References:
+ *         Morelli, R., & Walde, R. (2016). Java, Java, Java: Object-Oriented
+ *         Problem Solving.
+ *         Retrieved from
+ *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * 
+ * 
+ *         Version/date: 12/12/2023
+ * 
+ *         Responsibilities of class: The window when adding student
+ * 
+ */
 public class AddStudentWindow extends JFrame implements ActionListener
 {
 	private JPanel centerPanel;
@@ -162,6 +181,9 @@ public class AddStudentWindow extends JFrame implements ActionListener
 
 	}
 
+	/**
+	 * Action for the 2 button in this window
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -239,4 +261,4 @@ public class AddStudentWindow extends JFrame implements ActionListener
 		}
 
 	}
-}	
+}
